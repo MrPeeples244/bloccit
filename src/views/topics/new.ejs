@@ -7,7 +7,7 @@
 
 <body>
   <% include ../static/partials/navbar.ejs %>
-
+  <% include ../static/partials/messages.ejs %>
 
   <main class="container">
 
@@ -17,12 +17,12 @@
       <div class="form-group">
         <label for="title">Topic title</label>
         <input type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
-
+        <small class="text-muted" id="titleHelp">Title must be 5 or more characters in length.</small>
       </div>
       <div class="form-group">
         <label for="description">Description</label>
         <textarea rows="4" class="form-control" name="description" placeholder="Enter Description"></textarea>
-
+        <small class="text-muted" id="bodyHelp">Description must be 10 or more characters in length.</small>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
