@@ -199,7 +199,7 @@ describe("routes : posts", () => {
             title: "Watching snow melt",
             body:
               "Without a doubt my favorite thing to do besides watching paint dry!"
-            //userId: this.user.id
+            // userId: this.user.id
           }
         };
         request.post(options, (err, res, body) => {

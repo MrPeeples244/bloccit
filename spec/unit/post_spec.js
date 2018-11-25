@@ -1,7 +1,7 @@
 const sequelize = require("../../src/db/models/index").sequelize;
 const Topic = require("../../src/db/models").Topic;
 const Post = require("../../src/db/models").Post;
-const User = require("../..src/db/models").User;
+const User = require("../../src/db/models").User;
 
 describe("Post", () => {
   beforeEach(done => {
@@ -20,7 +20,7 @@ describe("Post", () => {
           {
             title: "Expeditions to Alpha Centauri",
             description:
-              "A compilation of reports from recent visits to the star system.",
+              "A compilation of reports from recent visits to the star system",
             posts: [
               {
                 title: "My first visit to Proxima Centauri b",
@@ -45,7 +45,7 @@ describe("Post", () => {
   });
 
   describe("#create()", () => {
-    it("should create a post object with a title, body, assigned topic, and user", done => {
+    it("should create a post object with a title, body, and assigned topic, and user", done => {
       Post.create({
         title: "Pros of Cryosleep during the long journey",
         body: "1. Not having to answer the 'are we there yet?' question.",
