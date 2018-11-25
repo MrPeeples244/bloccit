@@ -1,7 +1,7 @@
 const sequelize = require("../../src/db/models/index").sequelize;
 const Topic = require("../../src/db/models").Topic;
 const Post = require("../../src/db/models").Post;
-const User = require("../..src/db/models").User;
+const User = require("../../src/db/models").User;
 
 describe("Post", () => {
   beforeEach(done => {
@@ -20,7 +20,7 @@ describe("Post", () => {
           {
             title: "Expeditions to Alpha Centauri",
             description:
-              "A compilation of reports from recent visits to the star system.",
+              "A compilation of reports from recent visits to the star system",
             posts: [
               {
                 title: "My first visit to Proxima Centauri b",
@@ -45,7 +45,7 @@ describe("Post", () => {
   });
 
   describe("#create()", () => {
-    it("should create a post object with a title, body, assigned topic, and user", done => {
+    it("should create a post object with a title, body, and assigned topic and user", done => {
       Post.create({
         title: "Pros of Cryosleep during the long journey",
         body: "1. Not having to answer the 'are we there yet?' question.",
@@ -57,6 +57,7 @@ describe("Post", () => {
           expect(post.body).toBe(
             "1. Not having to answer the 'are we there yet?' question."
           );
+          expect(post.topicId).toBe(this.topic.id);
           expect(post.userId).toBe(this.user.id);
           done();
         })
@@ -65,9 +66,10 @@ describe("Post", () => {
           done();
         });
     });
-    it("should not create a post with missing title, body, or assigned topic", done => {
+
+    it("should not create a post with missing tite, body, or assigned topic", done => {
       Post.create({
-        title: "Pros of Cryosleep during the long journey"
+        title: "Pros of Crysleeping during the long journey"
       })
         .then(post => {
           done();
@@ -87,6 +89,7 @@ describe("Post", () => {
         description: "1. The Wi-Fi is terrible"
       }).then(newTopic => {
         expect(this.post.topicId).toBe(this.topic.id);
+
         this.post.setTopic(newTopic).then(post => {
           expect(post.topicId).toBe(newTopic.id);
           done();

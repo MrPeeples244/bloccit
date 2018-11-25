@@ -49,12 +49,12 @@ describe("Post", () => {
     it("should create a topic object with a title and description", done => {
       Topic.create({
         title: "Interdimensional Travel",
-        description: "Strategies for Travelling in the Hyperdimimension"
+        description: "Strategies for Travelling in the Hyperdimension"
       })
         .then(topic => {
           expect(topic.title).toBe("Interdimensional Travel");
           expect(topic.description).toBe(
-            "Strategies for Travelling in the Hyperdimiension"
+            "Strategies for Travelling in the Hyperdimension"
           );
           done();
         })
