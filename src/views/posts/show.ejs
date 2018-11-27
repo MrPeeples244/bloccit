@@ -9,8 +9,8 @@
 
     <main class="container">
       <h1><%= post.title %></h1>
-      <% if(currentUser) { %> <% if(currentUser.isAdmin() || currentUser.id ===
-      post.userId) { %>
+      <% if(currentUser) { %> <% if(currentUser.isAdmin() ||
+      currentUser.isOwner()) { %>
       <a
         href="/topics/<%= post.topicId %>/posts/<%= post.id %>/edit"
         class="btn btn-warning"
