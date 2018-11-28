@@ -34,7 +34,7 @@ describe("routes : topics", () => {
     beforeEach(done => {
       User.create({
         email: "admin@example.com",
-        password: "123456",
+        password: "1234567",
         role: "admin"
       }).then(user => {
         request.get(

@@ -198,8 +198,14 @@ describe("routes : posts", () => {
           form: {
             title: "Watching snow melt",
             body:
+<<<<<<< HEAD
               "Without a doubt my favorite thing to do besides watching paint dry!"
             //userId: this.user.id
+=======
+              "Without a doubt my favorite thing to do besides watching paint dry!",
+            topicId: this.topic.id,
+            userId: this.user.id
+>>>>>>> comments-checkpoint
           }
         };
         request.post(options, (err, res, body) => {

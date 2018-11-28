@@ -6,6 +6,7 @@
   <body>
     <% include ../static/partials/navbar.ejs %> <% include
     ../static/partials/messages.ejs %>
+
     <main class="container">
       <h1><%= post.title %></h1>
       <% if(currentUser) { %> <% if(currentUser.isAdmin() ||
@@ -24,6 +25,13 @@
       </form>
       <% } %> <% } %>
       <p><%= post.body %></p>
+      <section id="comment-form">
+        <% if(currentUser) { %> <% include ../comments/new.ejs %> <% } %>
+      </section>
+      <section id="comment-list">
+        <% if(post.comments) { %> <% post.comments.forEach((comment) => { %> <%-
+        include("../comments/show.ejs", {comment}) %> <% }) %> <% } %>
+      </section>
     </main>
     <% include ../static/partials/baseScripts.ejs %>
   </body>
