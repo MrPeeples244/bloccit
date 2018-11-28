@@ -198,6 +198,7 @@ describe("routes : posts", () => {
             title: "Watching snow melt",
             body:
               "Without a doubt my favorite thing to do besides watching paint dry!",
+            topicId: this.topic.id,
             userId: this.user.id
           }
         };
